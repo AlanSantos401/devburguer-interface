@@ -1,7 +1,7 @@
 
 import { ContainerButton } from "./styles";
 
-export function Button({children}){
+export function Button({children, ...props}){
   
-    return <ContainerButton>{children}</ContainerButton>;
+    return <ContainerButton {...props}>{children}</ContainerButton>;
 }
