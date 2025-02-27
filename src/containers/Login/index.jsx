@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
@@ -9,11 +10,14 @@ import { api } from '../../services/api';
 import { Container, 
   LeftContainer, 
   RightContainer, 
-  Title, Form, 
+  Title,
+  Form,
+  Link, 
   InputContainer, 
 } from './styles';
 
 export function Login() {
+  const navigate = useNavigate();
 
    const schema = yup
       .object ({
@@ -37,19 +41,28 @@ export function Login() {
     console.log(errors);
 
     const onSubmit = async (data) => {
-      const res =  await toast.promise( 
-        api.post('/session', {
+      const {
+         data: { token },
+      } =  await toast.promise(
+         api.post('/sessions', {
           email: data.email,
           password: data.password,
         }),
         {
           pending: 'Verificando seus dados',
-          success: 'Seja Bem-vindo(a) 🍔✅',
+          success: {
+            render(){
+              setTimeout(() => {
+                navigate('/');
+              }, 2000);
+              return 'Seja Bem-vindo(a) 🍔✅'
+            },
+          }, 
           error: 'Email ou Senha Incorreto 🍔❌',
-        },
+        }
       );
       
-      console.log(res)
+     localStorage.setItem('token', token);
     };
 
     return (
@@ -79,7 +92,7 @@ export function Login() {
                   <Button type="submit">Entrar</Button>
                 </Form>
                     <p>
-                     Não possui conta ? <a href="/cadastro">Clique aqui.</a>
+                     Não possui conta ? <Link to="/cadastro">Clique aqui.</Link>
                     </p>
             </RightContainer>
         </Container>

@@ -1,3 +1,4 @@
+import { Link as ReactLink } from 'react-router-dom';
 import styled from "styled-components";
 
 import BackgroundLeft from "../../assets/BackgroundLeft.svg";
@@ -110,3 +111,7 @@ export const InputContainer = styled.div`
 
 `;
 
+export const Link = styled(ReactLink)`
+text-decoration: none;
+color: #ffffff;
+`;
