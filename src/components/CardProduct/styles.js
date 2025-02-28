@@ -4,7 +4,7 @@ export const Container =styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
-   gap: 20px;
+   gap: 40px;
    padding: 20px;
    border-radius: 8px;
    background-color: #ffffff;
@@ -14,6 +14,7 @@ export const Container =styled.div`
    div {
     width: 100%;
     height: 80px;
+    gap: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
