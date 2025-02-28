@@ -20,15 +20,11 @@ h1 {
 `
 
 export const Container = styled.section`
-   background:linear-gradient(
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.4)
-      ),
-    url('${FundoPadrao}');
-   height: 500px;
+   background: url('${FundoPadrao}');
+   
 
 `
 
 export const Content = styled.div`
-
+  padding-bottom: 70px;
 `

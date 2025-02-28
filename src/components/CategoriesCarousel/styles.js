@@ -5,17 +5,19 @@ export const Container = styled.div`
     padding-right: 40px;
    }
    padding-left: 40px;
+   cursor: grab;
 `;
 
 export const Title = styled.h2`
    font-size: 32px;
    font-weight: 800;
-   counter-reset: #9758a6;
+   color: #9758a6;
    padding-bottom: 12px;
    position: relative;
    text-align: center;
    margin-bottom: 40px;
    margin-top: 20px;
+ 
   
 
    &::after {
