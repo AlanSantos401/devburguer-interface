@@ -12,13 +12,9 @@ export const ContainerButton = styled.button`
 
   img {
     height: 52px;
-
-    &:hover {
-    opacity: 0.5;
-  }
 }
 
 &:hover {
-    background-color: #6f357c;
+    opacity: 0.9;
 }
 `
