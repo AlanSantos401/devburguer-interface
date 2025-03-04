@@ -68,5 +68,23 @@ export const ProductsContainer = styled.div`
   gap: 60px;
   justify-content: center;
   max-width: 1280px;
-  margin: 50px auto;
+  margin: 50px auto 10px;
+`;
+export const ReturnButton = styled(Link)`
+ text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  background: none;
+  color:#9758a6;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 80px;
+  line-height: 20px;
+  border: none;
+
+  &:hover {
+    color:rgb(129, 60, 146);
+    text-decoration: underline;
+  }
 `

@@ -5,6 +5,7 @@ import {
 	CategoryMenu,
 	ProductsContainer,
 	CategoryButton,
+	ReturnButton,
 } from "./styles";
 import { api } from "../../services/api";
 import { formatPrice } from "../../utils/formatPrice";
@@ -18,9 +19,7 @@ export function Menu() {
 	
 
 	const navigate = useNavigate();
-
 	const { search } = useLocation();
-
 	const queryParams = new URLSearchParams(search);
 
 	const [activeCategory, setActiveCategory] = useState(() => {
@@ -67,6 +66,10 @@ export function Menu() {
 		}
 	}, [products, activeCategory]);
 
+	const handleGoHome = () => {
+		navigate('/');
+	};
+
 	return (
 		<Container>
 			<Banner>
@@ -106,6 +109,8 @@ export function Menu() {
 					<CardProduct product={product} key={product.id} />
 				))}
 			</ProductsContainer>
+			<ReturnButton 
+			onClick={handleGoHome}> &#x2190; Voltar</ReturnButton>
 		</Container>
 	);
 }
