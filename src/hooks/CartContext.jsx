@@ -27,8 +27,10 @@ export const CartProvider = ({children}) => {
   };
 
  
-  const clearCart = (product) => {
+  const clearCart = () => {
+   setCartProducts([]);
 
+   updateLocalStorage([]);
   }
 
   const deleteProduct = (productId) => {
@@ -49,7 +51,7 @@ export const CartProvider = ({children}) => {
     updateLocalStorage(newCart);
   };
 
-  const decraseProduct = (productId) => {
+  const decreaseProduct = (productId) => {
     const cartIndex = cartProducts.findIndex( (prd) => prd.id === productId);
 
     if(cartProducts[cartIndex].quantity > 1) {
@@ -83,11 +85,12 @@ useEffect(() => {
   return (
      <CartContext.Provider 
        value={{
+          cartProducts,
           putProductInCart,
           clearCart, 
           deleteProduct, 
           increaseProduct, 
-          decraseProduct
+          decreaseProduct,
         }}
      >
         {children}
