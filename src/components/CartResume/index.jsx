@@ -8,6 +8,7 @@ import { Button } from '../Button';
 import { Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 
+
 export function CartResume(){
     const [finalPrice, setFinalPrice] = useState(0);
     const [deliveryTax] = useState(500);
@@ -26,32 +27,32 @@ export function CartResume(){
 
     const submitOrder = async () => {
         const products = cartProducts.map((product) => {
-            return { id: product.id, quantity: product.quantity}
+          return {
+             id: product.id, 
+             quantity: product.quantity,
+             price: product.price
+            };
         });
 
-            try {
-              const { status } = await api.post(
-                 '/orders', 
-                 { products }, 
-                {
-                  validateStatus: () => true,
-                },
-              );
-        
-              if (status === 200 || status === 201) {
-                 clearCart();
-                setTimeout(() => {
-                  navigate('/') ;
-                }, 200);
-                toast.success('Pedido Realizado com Sucesso 😁🍔✅');
-              } else if (status === 400) {
-                toast.error('Falha ao realizar seu pedido. 😟🍔🚷');
-              } else {
-                throw new Error();  
-              }
-            } catch (error) {
-              toast.error('Falha no Sistema! Tente Novamente 🍔❌')
-            } 
+        try {
+           const { data } = await api.post('/create-payment-intent', { products });
+
+           navigate('/checkout', {
+            state: data,
+           })
+          
+        } catch(err){
+           toast.error('Erro, tente novamente', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgress: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'ligth',
+          });
+        }
     }
 
     return(
