@@ -4,7 +4,7 @@ import FundoPadrao from '../../assets/Padrao1.png';
 
 export const Container = styled.div`
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: ${props => props.theme.secondWhite};
   background: url('${FundoPadrao}');
   min-height: 100%;
   height: 100vh;
@@ -13,7 +13,7 @@ export const Banner = styled.div`
   background: url('${Texture}');
   background-size: cover;
   background-position: center;
-  background-color: #1f1f1f;
+  background-color: ${props => props.theme.mainBlack};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@ export const Title = styled.div`
    font-size: 32px;
    font-weight: 800;
    padding-bottom: 12px;
-   color: #61a120;
+   color: ${props => props.theme.gren};
    text-align: center;
    position: relative;
 
@@ -40,7 +40,7 @@ export const Title = styled.div`
     bottom: 0;
     width: 56px;
     height: 4px;
-    background-color: #61a120;
+    background-color: ${props => props.theme.gren};
 
    }
 `;

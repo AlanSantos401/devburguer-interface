@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: ${props => props.theme.secondWhite};
 
   background: url('${FundoPadrao}');
 `
@@ -20,7 +20,7 @@ export const Banner = styled.div`
   position: relative;
 
   background: url('${BannerHamburguer}') no-repeat;
-  background-color: #1f1f1f ;
+  background-color: ${props => props.theme.mainBlack} ;
   background-position: center;
   background-size: cover;
 
@@ -28,7 +28,7 @@ h1 {
   font-family: 'Road Rage', sans-serif;
   font-size  : 80px;
   line-height: 65px;
-  color: #ffffff;
+  color: ${props => props.theme.white};
   position: absolute;
 
   right: 20%;
@@ -36,7 +36,7 @@ h1 {
 
   span {
     display: block;
-    color: #ffffff;
+    color: ${props => props.theme.white};
     font-size: 20px;
   }
 }`;
@@ -52,13 +52,16 @@ export const CategoryButton = styled(Link)`
    text-decoration: none;
    cursor: pointer;
   background: none;
-  color:${props => (props.$isActiveCategory?'#9758a6' : '#696969')};
+  color:${props => (props.$isActiveCategory 
+    ? `${props => props.theme.purple}` 
+    : '#696969')};
   font-size: 24px;
   font-weight: 500;
   padding-bottom: 5px;
   line-height: 20px;
   border: none;
-  border-bottom: ${ props => props.$isActiveCategory && '3px solid #9758a6'};
+  border-bottom: ${ props => 
+   props.$isActiveCategory && `3px solid ${props => props.theme.purple}`};
 `
 
 export const ProductsContainer = styled.div`
@@ -76,7 +79,7 @@ export const ReturnButton = styled(Link)`
   display: flex;
   justify-content: center;
   background: none;
-  color:#9758a6;
+  color: ${props => props.theme.purple};
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 80px;
@@ -84,7 +87,7 @@ export const ReturnButton = styled(Link)`
   border: none;
 
   &:hover {
-    color:rgb(129, 60, 146);
+    color:#813c92;
     text-decoration: underline;
   }
 `

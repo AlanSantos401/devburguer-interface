@@ -1,50 +1,28 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import { Footer } from '../components/Footer'
-import { Header } from '../components/Header';
-import { Cart, Checkout, Home, Login, Menu, Register, CompletePayment } from '../containers';
+import { Cart, Checkout, Home, Login, Menu, Register, CompletePayment, Admin } from '../containers';
+import { UserLayout } from '../layouts/UserLayout';
+import { AdminLayout } from '../layouts/AdminLayout';
 
 
-export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: (
-            <>
-              <Header />
-              <Home />
-              <Footer />
-            </>
-        )                
-    },
-    {
-        path: '/login',
-        element: <Login />,
-    },
-    {
-        path: '/cadastro',
-        element: <Register />,
-    },
+export function Router() {
+   
+    return (
+        <Routes>
+            <Route path='/' element={<UserLayout />}>
+            <Route path='/' element={<Home />} />
+            <Route path='/cardapio' element={<Menu />} />
+            <Route path='/carrinho' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/complete' element={<CompletePayment />} />
+            </Route>
 
-    {
-        path: '/cardapio',
-        element:  (
-            <>
-              <Header />
-              <Menu />
-            </>
-        )   
-    },
-    {
-        path: '/carrinho',
-        element: <Cart />,
-    },
-    {
-        path: '/checkout',
-        element: <Checkout />,
-    },
-    {
-        path: '/complete',
-        element: <CompletePayment />,
-    },
+            <Route path='/admin' element={<AdminLayout />}>
+               <Route path='/admin/home' element={<Admin />}/>
+            </Route>
 
-]);
+            <Route path='/login' element={<Login />} />
+            <Route path='/cadastro' element={<Register />} />     
+        </Routes>
+    )
+}

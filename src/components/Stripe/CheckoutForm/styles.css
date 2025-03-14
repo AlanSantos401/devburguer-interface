@@ -66,6 +66,9 @@
     opacity: 0.5;
     cursor: default;
   }
+  .status-title {
+    text-align: center;
+  }
   
   .spinner,
   .spinner:before,
@@ -196,6 +199,7 @@
   }
   
   #retry-button {
+    text-decoration: none;
     text-align: center;
     background: #0055DE;
     color: #ffffff;

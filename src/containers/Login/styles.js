@@ -44,7 +44,7 @@ export const RightContainer = styled.div`
   background-color:#1e1e1e;
 
   p {
-    color:#ffffff;
+    color: ${props => props.theme.white};
     font-size: 18px;
     font-weight: 800;
 
@@ -63,10 +63,10 @@ export const Title = styled.h2`
 font-family: "Road Rage", serif;
   font-weight: 400;
   font-size: 40px;
-  color: #ffffff;
+  color: ${props => props.theme.white};
 
   span {
-    color: #9758A6;
+    color: ${props => props.theme.purple};
     font-family: "Road Rage", serif;
   }
 `;
@@ -97,14 +97,14 @@ export const InputContainer = styled.div`
   label {
     font-size: 18px;
     font-weight: 600;
-    color: #ffffff;
+    color: ${props => props.theme.white};
     
   }
 
   p {
     font-size: 14px;
     line-height: 80%;
-    color:#cf3057;  
+    color: ${props => props.theme.darkRed};  
     font-weight: 600;
     height: 10px;
   }
@@ -113,5 +113,5 @@ export const InputContainer = styled.div`
 
 export const Link = styled(ReactLink)`
 text-decoration: none;
-color: #ffffff;
+color: ${props => props.theme.white};
 `;

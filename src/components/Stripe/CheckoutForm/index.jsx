@@ -5,7 +5,7 @@ import {
 	useElements,
 } from "@stripe/react-stripe-js";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./style.css";
+import "./styles.css";
 import { useCart } from "../../../hooks/CartContext";
 import { api } from "../../../services/api";
 import { toast } from "react-toastify";
@@ -60,13 +60,13 @@ export function CheckoutForm() {
 				);
 
 				if (status === 200 || status === 201) {
-					clearCart();
 					setTimeout(() => {
 						navigate(
               `/complete?payment_intent_client_secret=${paymentIntent.client_secret}`,
-            );
-						clearCart();
+            );	
 					}, 3000);
+					
+					clearCart();
 					toast.success("Pedido Realizado com Sucesso 😁🍔✅");
 				} else if (status === 400) {
 					toast.error("Falha ao realizar seu pedido. 😟🍔🚷");
@@ -77,7 +77,9 @@ export function CheckoutForm() {
 				toast.error("Falha no Sistema! Tente Novamente 🍔❌");
 			}
 		} else {
-			toast.error("Falha no Sistema! Tente Novamente 🍔❌");
+			navigate(
+				`/complete?payment_intent_client_secret=${paymentIntent.client_secret}`,
+			  );
 		}
 
 		setIsLoading(false);
