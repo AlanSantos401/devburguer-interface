@@ -94,7 +94,7 @@ export function Menu() {
 									search: `?categoria=${category.id}`,
 								},
 								{
-									replace: 'true',
+									replace: true,
 								},
 							);
 							setActiveCategory(category.id);
@@ -110,7 +110,7 @@ export function Menu() {
 				))}
 			</ProductsContainer>
 			<ReturnButton 
-			onClick={handleGoHome}> &#x2190; Voltar</ReturnButton>
+			to={'/'}> &#x2190; Voltar</ReturnButton>
 		</Container>
 	);
 }

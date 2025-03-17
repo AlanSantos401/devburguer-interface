@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
+import { useOutletContext } from "react-router-dom";
 import 'react-multi-carousel/lib/styles.css';
 
 import { api } from '../../services/api';
@@ -53,20 +54,10 @@ export function CategoriesCarousel(){
             >
                 {categories.map( category => (
                    <ContainerItems key={category.id} imageUrl={category.url}>
-                    <CategoryButton
-                      onClick={() => {
-                        navigate(
-                            {
-                                pathname: '/cardapio',
-                                search: `?categoria=${category.id}`,
-                            },
-                            {
-                                replace: 'true',
-                            },
-                        ); 
-                      }}
-                    >
-                        {category.name}</CategoryButton>
+                     <CategoryButton 
+                       to={`/cardapio?categoria=${category.id}`}>
+                        {category.name}
+                     </CategoryButton>
                     </ContainerItems>
                 ))}
                 

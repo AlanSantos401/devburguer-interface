@@ -60,8 +60,7 @@ export const CategoryButton = styled(Link)`
   padding-bottom: 5px;
   line-height: 20px;
   border: none;
-  border-bottom: ${ props => 
-   props.$isActiveCategory && `3px solid ${props => props.theme.purple}`};
+  border-bottom: ${props => props.$isActiveCategory ? `3px solid ${props.theme.purple}` : 'none'};
 `
 
 export const ProductsContainer = styled.div`
