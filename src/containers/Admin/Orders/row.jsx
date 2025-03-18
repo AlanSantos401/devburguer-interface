@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { formatDate } from '../../../utils/formatDate';
-import { ProductImage, SelectStatus} from './styles'
+import { ProductImage, SelectStatus, } from './styles'
 import { orderStatusOptions } from './orderStatus';
 import { api } from '../../../services/api';
 
@@ -41,6 +41,7 @@ export function Row({row, orders,  setOrders}) {
 
     return (
       <>
+     
         <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
           <TableCell>
             <IconButton
@@ -64,6 +65,7 @@ export function Row({row, orders,  setOrders}) {
               )}
               onChange={ status => newStatusOrder(row.orderId, status.value)}
               isLoading={loading}
+              menuPortalTarget={document.body}
             />
           </TableCell>
         </TableRow>
