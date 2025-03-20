@@ -30,8 +30,8 @@ export function Router() {
             </Route>
 
             <Route path='/admin' element={<AdminLayout />}>
-               <Route path='/admin/novo-produto' element={<EditProduct />}/>
-               <Route path='/admin/editar-produto' element={<NewProduct />}/>
+               <Route path='/admin/novo-produto' element={<NewProduct />}/>
+               <Route path='/admin/editar-produto' element={<EditProduct />}/>
                <Route path='/admin/pedidos' element={<Orders />}/>
                <Route path='/admin/produtos' element={<Product />}/>
             </Route>
