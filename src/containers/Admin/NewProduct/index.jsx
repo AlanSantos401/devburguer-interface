@@ -66,11 +66,12 @@ export function NewProduct() {
         resolver: yupResolver(schema),
       })
       const onSubmit = async (data) => {
+        console.log("Dados do formulário:", data)
       const productFormData = new FormData();
       
       productFormData.append('name', data.name)
       productFormData.append('price', data.price * 100)
-      productFormData.append('category_id', data.category.id)
+      productFormData.append('category_id', data.category?.id || "")
       productFormData.append('file', data.file[0])
 
       await toast.promise(api.post('/products', productFormData), {

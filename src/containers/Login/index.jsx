@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
-import Logo from '../../assets/Logo1.svg';
+import Logo from '../../assets/Logo1.png'
 import { Button } from '../../components/Button';
 import { api } from '../../services/api';
 import { Container, 
@@ -73,11 +73,11 @@ export function Login() {
     return (
         <Container>
            <LeftContainer>
-            <img src={Logo} alt='logo DveBurguer' />
+            <img src={Logo} alt='logo PrimeBurguer' />
             </LeftContainer> 
             <RightContainer>
               <Title>
-                Olá, seja bem vindo ao <span>DevBurguer!</span> 
+                Olá, seja bem vindo ao <span>PrimeBurguer!</span> 
                 <br />
                 Acesse com seu 
                 <span> Login e senha.</span>

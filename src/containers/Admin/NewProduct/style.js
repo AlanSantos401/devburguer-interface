@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100vh;
 `
-export const Form = styled.div`
+export const Form = styled.form`
   border-radius: 20px;
   background-color: ${props => props.theme.black};
   padding: 32px;

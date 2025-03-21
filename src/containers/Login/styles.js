@@ -9,7 +9,6 @@ export const Container = styled.div`
   height: 100vh;
   width: 100vw;
 
- 
 `;
 
 export const LeftContainer = styled.div`
@@ -26,7 +25,7 @@ export const LeftContainer = styled.div`
   justify-content: center;
 
   img {
-    width: 80%;
+    width: 60%;
   }
 
 `;

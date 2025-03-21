@@ -1,5 +1,5 @@
 import { navLinks } from "./navLink";
-import Logo from '../../assets/Logo1.svg';
+import Logo from '../../assets/Logo1.png';
 import { useUser } from '../../hooks/UserContext';
 import { SignOut } from "@phosphor-icons/react/dist/ssr";
 import { useResolvedPath } from 'react-router-dom';

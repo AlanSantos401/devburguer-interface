@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 
-import Logo from '../../assets/Logo1.svg';
+import Logo from '../../assets/Logo1.png';
 import { Button } from '../../components/Button';
 import { api } from '../../services/api';
 import { Container, 
@@ -81,7 +81,7 @@ export function Register() {
     return (
         <Container>
            <LeftContainer>
-            <img src={Logo} alt='logo DveBurguer' />
+            <img src={Logo} alt='logo PrimeBurguer' />
             </LeftContainer> 
             <RightContainer>
               <Title>Criar Conta</Title>  

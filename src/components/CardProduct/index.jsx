@@ -17,6 +17,10 @@ export function CardProduct({product}) {
         </Container>
     );
 }
-CardProduct.PropTypes = {
-    product: PropTypes.object,
-}
+CardProduct.propTypes = { // "propTypes" deve ter p minúsculo
+    product: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      currencyValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+    }).isRequired,
+};  

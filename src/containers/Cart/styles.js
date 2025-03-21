@@ -6,8 +6,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: ${props => props.theme.secondWhite};
   background: url('${FundoPadrao}');
-  min-height: 100%;
-  height: 100vh;
+  min-height: 100vh;
 `;
 export const Banner = styled.div`
   background: url('${Texture}');

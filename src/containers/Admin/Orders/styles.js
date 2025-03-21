@@ -5,6 +5,7 @@ export const ProductImage = styled.img`
    height: 80px;
    padding: 12px;
    border-radius: 16px;
+   background-color: #f3f3f3;
 `;
 
 export const SelectStatus = styled(Select)`
