@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import FundoPadrao from '../../assets/Padrao1.png'
 
 export const Container = styled.div`
  display: grid;
  grid-template-columns: minmax(220px, 280px) 1fr;
+ 
 
  main {
     display: flex;
@@ -12,6 +14,7 @@ export const Container = styled.div`
     height: 100vh;
     background-color: ${props => props.theme.secondWhite};
     overflow-y: auto;
+    background: url('${FundoPadrao}');
  }
 
  section {

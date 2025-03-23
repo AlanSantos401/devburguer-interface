@@ -1,6 +1,7 @@
-import { UserCircle, ShoppingCart } from '@phosphor-icons/react';
+import { ShoppingCart, User, Gear } from '@phosphor-icons/react';
 import { useNavigate, useResolvedPath } from 'react-router-dom';
 import { useUser } from '../../hooks/UserContext';
+
 import { 
    Container,
    Navigation,
@@ -10,13 +11,18 @@ import {
    LinkContainer, 
    HeaderLink,
    Content,
+   ButtonAdmin,
   } from './styles';
 
 export function Header() {
   const navigate = useNavigate();
   const { logout, userInfo } = useUser();
+  
 
   const { pathname } = useResolvedPath();
+
+  const isAdmin = userInfo?.admin === true;
+
 
 
    function logoutUser() {
@@ -38,13 +44,21 @@ export function Header() {
            </Navigation>
            <Options>
              <Profile>
-                 <UserCircle color='#fff' size={24}/>
+                 <User size={24} color='#fff'/>
+
+                 {isAdmin && (
+              <ButtonAdmin onClick={() => navigate('/admin/produtos')}>
+                <Gear size={24} color='#fff'/>
+              </ButtonAdmin>
+                 )}
+                 
                  <div>
                     <p>Olá, <span>{userInfo.name}</span></p>
                     <Logout onClick={logoutUser}>Sair</Logout>
                  </div>
              </Profile>  
              <LinkContainer>
+          
                 <ShoppingCart color='#fff' size={24}/>
                  <HeaderLink to='/carrinho'>Carrinho</HeaderLink>
             </LinkContainer>          

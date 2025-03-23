@@ -6,8 +6,8 @@ export const orderStatusOptions = [
     },
     {
         id: 1, 
-        value: 'Pedido Reaizado', 
-        label: 'Pedido Reaizado'
+        value: 'Pedido Realizado', 
+        label: 'Pedido Realizado'
     },
     {
         id: 2, 

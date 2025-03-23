@@ -8,12 +8,7 @@ export const Container = styled.div`
   height: 100%;
   align-items: center;
   background-color: ${props => props.theme.black};
-
-  img {
-    width: 60%;
-    margin: 40px 0;
-  }
-
+ 
  `
 
 export const NavLinkContainer = styled.nav`
@@ -34,6 +29,21 @@ export const NavLink = styled(Link)`
     background-color: ${ props => props.theme.purple};
   }
 `
+export const ImageButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  img {
+    width: 60%;
+    margin: 40px 0;
+  }
+`
+
 export const Footer= styled.footer`
     width: 100%;
     margin-top: auto;

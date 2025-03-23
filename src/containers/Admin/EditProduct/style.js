@@ -2,10 +2,10 @@ import styled from "styled-components";
 import ReactSelect from "react-select";
 import { Button } from "../../../components"
 
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
+
   justify-content: center;
   min-height: 100vh;
 `

@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.div``
+export const Container = styled.div`
+.MuiInputLabel-root {
+  position: relative;
+  top: 16px;  
+}
+`
 
 export const ProductImage = styled.img`
    height: 80px;

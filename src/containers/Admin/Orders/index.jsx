@@ -24,6 +24,7 @@ export function Orders() {
     
     async function loadOrders() {
       const { data } = await api.get('orders');
+    
 
       setOrders(data);
       setFilteredOrders(data);
@@ -48,7 +49,6 @@ export function Orders() {
 
 useEffect (() => {
   const newRows = filteredOrders.map( order => createData(order));
-
   setRows(newRows);
 }, [filteredOrders]);
 
@@ -57,7 +57,7 @@ useEffect (() => {
       setFilteredOrders(orders);
     } else {
       const newOrders = orders.filter(order => order.status === status.value);
-
+      
       setFilteredOrders(newOrders);
     }
 
@@ -80,10 +80,13 @@ useEffect (() => {
     }
   }, [orders]);
 
+  
+
   return (
    <>
       <Filter>
             {orderStatusOptions.map(status => (
+              
               <FilterOption 
                 key={status.id}
                 onClick={() => handleStatus(status)}

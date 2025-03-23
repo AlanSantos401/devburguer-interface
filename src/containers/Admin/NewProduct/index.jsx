@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { useEffect, useState } from "react";
 import { api } from '../../../services/api';
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 import { 
     InputGroup, 
     Label, 
@@ -16,7 +16,9 @@ import {
     Select,
     SubmitButton,
     ErrorMessage,
+    ContainerCheckBox,
    } from "./style";
+
 
 
 
@@ -30,6 +32,7 @@ const schema = yup
     .required('Digite o preço do produto')
     .typeError('Digite o preço do produto'),
     category: yup.object().required('Escolha uma categoria'),
+    offer: yup.bool(),
     file: yup.mixed().test('required', 'Escolha um arquivo para continuar', value => {
       return value && value.length > 0;
     }).test('fileSize', 'Carregue arquivos até 3MB', value => {
@@ -46,6 +49,8 @@ const schema = yup
 export function NewProduct() {
   const [fileName, setFileName] = useState(null);
   const [categories, setCategories] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
    async function loadCategories() {
@@ -66,21 +71,26 @@ export function NewProduct() {
         resolver: yupResolver(schema),
       })
       const onSubmit = async (data) => {
-        console.log("Dados do formulário:", data)
       const productFormData = new FormData();
       
       productFormData.append('name', data.name)
       productFormData.append('price', data.price * 100)
       productFormData.append('category_id', data.category?.id || "")
       productFormData.append('file', data.file[0])
+      productFormData.append('offer', data.offer)
+
 
       await toast.promise(api.post('/products', productFormData), {
         pending: 'Adicionando o produto...',
         success: 'Produto criado com sucesso',
         error: 'Falha ao adicionar o produto, tente novamente',
-        
       })
-      }
+
+      setTimeout(() => {
+        navigate('/admin/produtos')
+      }, 2000)
+        
+    }
         
        
     return(
@@ -88,13 +98,13 @@ export function NewProduct() {
             <Form onSubmit={handleSubmit(onSubmit)}>
               <InputGroup>
                 <Label>Nome</Label>
-                <Input type="text" {...register("name")} />
+                <Input type="text" {...register('name')} />
                 <ErrorMessage>{errors?.name?.message}</ErrorMessage>
               </InputGroup>  
 
               <InputGroup>
                 <Label>Preço</Label>
-                <Input type={"number"} {...register("price")} />
+                <Input type="number" {...register("price")} />
                 <ErrorMessage>{errors?.price?.message}</ErrorMessage>
               </InputGroup>  
 
@@ -135,7 +145,17 @@ export function NewProduct() {
                 />
                  <ErrorMessage>{errors?.category?.message}</ErrorMessage>
               </InputGroup>
-              
+              <InputGroup>
+              <ContainerCheckBox>
+                <input 
+                  type='checkbox' 
+                  {...register('offer')}
+                />
+                <Label>Produto em Oferta?</Label>
+                
+              </ContainerCheckBox>
+              </InputGroup>
+
               <SubmitButton type="submit">Adicionar Produto</SubmitButton>
             </ Form>
         </Container>

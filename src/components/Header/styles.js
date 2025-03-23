@@ -86,4 +86,24 @@ export const Logout = styled.button`
    border: none;
 
 `;
+export const CartBadge = styled.span`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
+export const ButtonAdmin = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
