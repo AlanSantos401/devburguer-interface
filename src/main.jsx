@@ -10,19 +10,22 @@ import stripePromise from "./config/stripeConfig";
 import { ThemeProvider } from "styled-components";
 import { standardTheme } from "./styles/themes/standard";
 import { Router } from "./routes";
+import { CartProvider } from './hooks/CartContext';
 
 createRoot(document.getElementById("root")).render(
-	<StrictMode>
-		<ThemeProvider theme={standardTheme}>
-			<AppProvider>
-				<Elements stripe={stripePromise}>
-					<BrowserRouter>
-					  <Router />
-					</BrowserRouter>
-				</Elements>
-				<GlobalStyles />
-				<ToastContainer autoClose={2000} theme="dark" />
-			</AppProvider>
-		</ThemeProvider>
-	</StrictMode>,
+  <StrictMode>
+    <ThemeProvider theme={standardTheme}>
+      <AppProvider>
+        <CartProvider>
+          <Elements stripe={stripePromise}>
+            <BrowserRouter>
+              <Router />
+            </BrowserRouter>
+          </Elements>
+        </CartProvider>
+      </AppProvider>
+      <GlobalStyles />
+      <ToastContainer autoClose={2000} theme="dark" />
+    </ThemeProvider>
+  </StrictMode>
 );

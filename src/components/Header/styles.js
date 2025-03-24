@@ -32,6 +32,8 @@ export const Navigation = styled.nav`
         border: 1px solid ${props => props.theme.darkGray};
     }
    }
+
+   
 `;
 export const HeaderLink = styled(Link)`
    color: ${(props) => (props.$isActive 
@@ -48,6 +50,8 @@ export const HeaderLink = styled(Link)`
    &:hover {
     color: ${props => props.theme.purple};
    }
+   
+  
 `;
 export const Options = styled.div`
    display: flex;
@@ -76,6 +80,22 @@ export const LinkContainer = styled.div`
    display: flex;
    align-items: center;
    gap: 10px;
+   position: relative;
+
+   .cart-quantity {
+     right: 70px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 12px;
+     width: 11px;
+     background: #9857a6;
+     color: #fff;
+     position: absolute;
+     top: 0px;
+     font-size: 10px;
+   }
 
 `;
 export const Logout = styled.button`

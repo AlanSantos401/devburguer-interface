@@ -26,6 +26,8 @@ export function Orders() {
       const { data } = await api.get('orders');
     
 
+      const pedidosOrdenados = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
       setOrders(data);
       setFilteredOrders(data);
     

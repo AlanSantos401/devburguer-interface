@@ -15,7 +15,7 @@ h1 {
     color: ${props => props.theme.darkWhite};
     position: absolute;
     right: 20%;
-    top: 10%;
+    top: 10vh;
 }
 `
 
